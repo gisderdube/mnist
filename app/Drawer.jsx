@@ -99,7 +99,7 @@ const Drawer = ({ setImage, resetResult }) => {
   return (
     <StyledDrawer>
       <canvas ref={ref} width={width} height={height}></canvas>
-      <button onClick={reset} style={{ marginTop: 10 }}>
+      <button onClick={reset} style={{ marginTop: 10,backgroundColor: '#e7e7e7',color:'#111',width:'10%',padding:'0.5em' }}>
         Clear
       </button>
     </StyledDrawer>
