@@ -5,26 +5,18 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
-  background-color: rgb(245, 245, 245);
+  height: 50px;
+  /* background-color: rgb(245, 245, 245); */
 `;
 
-const Image = styled.img`
-  width: 250px;
-`;
-
-const Result = ({ loading, imageSrc, classification, motorcycles }) => {
+const Result = ({ loading, result }) => {
   return (
     <Wrapper>
-      {imageSrc && <Image src={imageSrc}></Image>}
       {loading && <h4>Loading...</h4>}
-      {!imageSrc && !loading && (
-        <p>Upload your own image or pick one of the sample images below.</p>
-      )}
-      {classification && (
+      {result && (
         <h3>
-          Predicted Motorcycle Model:{" "}
-          {motorcycles.find(m => m.label === classification).title}
+          Predicted Digit: {result.class} - Probablity:{" "}
+          {(result.probability * 100).toFixed(4)} %
         </h3>
       )}
     </Wrapper>
